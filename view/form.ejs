@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/product/get">
+        <input type="text" name="title" placeholder="title">
+        <input type="number" name="price" placeholder="price">
+        <input type="text" name="category" placeholder="category">
+        <input type="url" name="img" placeholder="img">
+        <input type="submit">
+    </form>
+</body>
+
+<script>
+    const get = async()=>{
+        let res = await fetch("product/create")
+        let data = await res.json()
+        console.log(data);
+    }
+    get()
+</script>
+
+</html>
