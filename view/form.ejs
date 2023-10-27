@@ -34,12 +34,12 @@
             let h3 = document.createElement("h3")
             h3.innerHTML = ele.title;
             let img = document.createElement("img")
-            img.src = ele.price;
-            img.setAttribute("width","200px")
+            img.src = ele.img;
+            img.setAttribute("width","100px")
             let h4 = document.createElement("h4")
             h4.innerHTML = ele.category;
             let p = document.createElement("p")
-            p.innerHTML = ele.img;
+            p.innerHTML = ele.price;
             let div = document.createElement("div")
             div.append(h3 , h4 , p , img)
             document.getElementById("product").append(div)
