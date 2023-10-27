@@ -10,8 +10,8 @@ const getPro = async(req,res) =>{
     res.send(data)
 }
 
-const getData = (req,res) =>{
+const getRender = (req,res) =>{
     res.render('form')
 }
 
-module.exports = {createPro, getPro, getData}
+module.exports = {createPro, getPro, getRender}

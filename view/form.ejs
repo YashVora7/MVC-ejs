@@ -6,22 +6,46 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="/product/get">
+    <form method="post" action="/product/create">
         <input type="text" name="title" placeholder="title">
         <input type="number" name="price" placeholder="price">
         <input type="text" name="category" placeholder="category">
         <input type="url" name="img" placeholder="img">
         <input type="submit">
     </form>
+
+    <div id="product"></div>
+
 </body>
 
 <script>
-    const get = async()=>{
-        let res = await fetch("product/create")
-        let data = await res.json()
-        console.log(data);
-    }
-    get()
+    // const get = async()=>{
+    //     let res = await fetch("/product/get")
+    //     let data = await res.json()
+    //     console.log(data);
+    // }
+    // get()
+
+
+    fetch("/product/get")
+    .then((res) => res.json())
+    .then((data) =>{
+        data.map((ele)=>{
+            let h3 = document.createElement("h3")
+            h3.innerHTML = ele.title;
+            let img = document.createElement("img")
+            img.src = ele.price;
+            img.setAttribute("width","200px")
+            let h4 = document.createElement("h4")
+            h4.innerHTML = ele.category;
+            let p = document.createElement("p")
+            p.innerHTML = ele.img;
+            let div = document.createElement("div")
+            div.append(h3 , h4 , p , img)
+            document.getElementById("product").append(div)
+        })
+    })
+
 </script>
 
 </html>
