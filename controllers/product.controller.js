@@ -11,7 +11,7 @@ const getPro = async(req,res) =>{
 }
 
 const getRender = (req,res) =>{
-    res.render('form')
+    res.render('product')
 }
 
 module.exports = {createPro, getPro, getRender}

@@ -40,4 +40,8 @@ const ui = (req,res)=>{
     res.render("index")
 }
 
-module.exports = {get, post, ui, login}
+const getUser = (req,res) =>{
+    res.render('user')
+}
+
+module.exports = {get, post, ui, login, getUser}

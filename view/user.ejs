@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserData</title>
+</head>
+<body>
+    <form method="post" action="/user/login">
+        <input type="text" name="email" placeholder="email">
+        <input type="text" name="password" placeholder="password">
+        <input type="url" name="img" placeholder="img">
+        <input type="submit">
+    </form>
+
+    <div id="user"></div>
+
+</body>
+
+<script>
+    // const get = async()=>{
+    //     let res = await fetch("/product/get")
+    //     let data = await res.json()
+    //     console.log(data);
+    // }
+    // get()
+
+
+    fetch("/user/")
+    .then((res) => res.json())
+    .then((data) =>{
+        data.map((ele)=>{
+            let img = document.createElement("img")
+            img.src = ele.img;
+            img.setAttribute("width","100px")
+            let h3 = document.createElement("h3")
+            h3.innerHTML = ele.email;
+            h3.style.display = "inline"
+            let div = document.createElement("div")
+            div.append(img,h3)
+            document.getElementById("user").append(div)
+        })
+    })
+
+</script>
+
+</html>
