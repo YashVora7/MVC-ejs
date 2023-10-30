@@ -1,12 +1,23 @@
-const check = (req,res,next)=>{
-    let {email, password} = req.body
+// const check = (req,res,next)=>{
+//     let {email, password} = req.body
 
-    if(email&&password){
-        next()
+//     if(email&&password){
+//         next()
+//     }
+//     else{
+//         res.status(404).send("All fields are required")
+//     }
+// }
+
+const isAuth = (req, res, next)=>{
+
+    if(req.user){
+        return next()
     }
     else{
-        res.status(404).send("All fields are required")
+        res.redirect("/user/login")
     }
+
 }
 
-module.exports = check
+module.exports = isAuth 
